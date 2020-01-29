@@ -86,3 +86,29 @@ a button:hover{
     background-image: linear-gradient(#8c0d0d, #4a1c1c);
     transition-duration: 2s;
 }
+
+div#timer {
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-family: 'lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+div#currentscore {
+    color: white;
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    right: calc(50% - 50px);
+    top: 30px;
+    font-family: 'lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+div#currentscore:before{
+    content:' CURRENT SCORE: ';
+    font-size: 10px;
+    display: block;
+}

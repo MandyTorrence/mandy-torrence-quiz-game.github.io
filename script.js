@@ -1,9 +1,22 @@
-var myVar = setInterval(myTimer, 1000);
+var totalSeconds = 0;
+setInterval(myTimer, 1000);
+
+function time(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString++;
+  }
+  else {
+    return valString;
+  }
+}
 
 function myTimer() {
-  var d = new Date();
-  document.getElementById("timer").innerHTML = d.toLocaleTimeString();
+  ++totalSeconds;
+  $("#timer").text(time(parseInt(totalSeconds / 60)) + ":" + time(totalSeconds % 60));
 }
+
+
 var pos = 0, quiz, quiz_status, question, choice, choices, ansA, ansB, ansC, ansD, correct = 0;
 var questions = [
   ['What Gryffindor student and their brother sneak back into the castle to help fight in the final battle?', 'Piers Polkiss', 'Colin Creevey', 'Peter Pettigrew', 'Leta LaStrange', 'B'],
@@ -56,7 +69,7 @@ function checkAnswer() {
   if (choice == questions[pos][5]) {
     correct++;
   }
-
+  $("#currentscore").text(correct + "/10")
   pos++;
   $("#quiz_status").empty();
   $("#quiz").empty();
