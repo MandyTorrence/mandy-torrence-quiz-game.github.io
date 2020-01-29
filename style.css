@@ -1,0 +1,88 @@
+html, body{
+    width: 100%;
+    height:100%;
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+}
+h1, h2, h3 {    
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    color: #1c2240;
+}
+h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 54px;
+}
+h2{
+    font-family: sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+h4{
+    font-family: 'Seaweed Script', cursive;
+    font-size: 28px;
+    font-weight: 500;
+}
+#quiz {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight:  700;
+    text-align: center;
+}
+input [type="radio"]{
+    width: 18px;
+    height: 18px;
+}
+.page-wrapper{
+    background-image: linear-gradient(#121212, #1c2240);
+    min-height: 100%;
+    padding: 25px
+}
+.page-content{
+    width: 95%;
+    max-width: 600px;
+    box-sizing: border-box;
+    padding: 35px;
+    margin: 25px auto;
+    display: block;
+    color: #116511;
+    background-color: #f8f5de;
+    background-image: linear-gradient(to right, rgba(160, 148, 88, 0.47), rgba(200, 160, 0, 0.1) 11%, rgba(0,0,0,0) 35%, rgba(200, 160, 0, 0.1) 65%);
+    box-shadow: inset 0 0 75px rgba(255, 235, 59, 0.5), inset 0 0 20px rgba(138, 121, 72, 0.47), inset 0 0 30px #795548;
+    border-radius: 5px;  
+}
+a button{
+    display: block;
+    padding: 10px 20px;
+    background-image: linear-gradient(#bfac79, #65551a);
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition-duration: 2s;
+}
+a button:hover{
+    background-image: linear-gradient(#8c0d0d, #4a1c1c);
+    transition-duration: 2s;
+}
+#quiz button, a button.play-btn{
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    background-image: linear-gradient(#845798, #351a65);
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition-duration: 2s;
+}
+#quiz button:hover, a button.play-btn:hover{
+    background-image: linear-gradient(#8c0d0d, #4a1c1c);
+    transition-duration: 2s;
+}
