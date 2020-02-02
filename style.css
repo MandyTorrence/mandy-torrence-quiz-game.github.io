@@ -70,7 +70,7 @@ a button:hover{
     background-image: linear-gradient(#8c0d0d, #4a1c1c);
     transition-duration: 2s;
 }
-#quiz button, a button.play-btn{
+#quiz button, a button.play-btn, input#form-btn{
     display: block;
     margin: auto;
     padding: 10px 20px;
@@ -82,7 +82,7 @@ a button:hover{
     font-size: 14px;
     transition-duration: 2s;
 }
-#quiz button:hover, a button.play-btn:hover{
+#quiz button:hover, a button.play-btn:hover, input#form-btn:hover{
     background-image: linear-gradient(#8c0d0d, #4a1c1c);
     transition-duration: 2s;
 }
@@ -111,4 +111,27 @@ div#currentscore:before{
     content:' CURRENT SCORE: ';
     font-size: 10px;
     display: block;
+}
+.finalscore {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+div#quiz form input {
+    width: 80%;
+    text-align: center;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+@media only screen and (max-width: 600px){
+    div#currentscore {
+        display: block;
+        position: relative;
+        width: 100%!important;
+        text-align: center;
+        top: 10px;
+        margin: auto;
+        right: unset;
+    }
 }
