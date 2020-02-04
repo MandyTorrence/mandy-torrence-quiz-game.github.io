@@ -1,1 +1,1 @@
-# mandy-torrence-quiz-game.github.io
+# mandy-torrence-quiz-game

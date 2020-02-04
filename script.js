@@ -37,25 +37,15 @@ var questions = [
 var quiz = $("#quiz");
 function renderQuestion() {
 
-
   if (pos >= questions.length) {
     clearInterval(timer);
 
     quiz.append('<div class="finalscore">You got ' + correct + ' of ' + questions.length + ' questions correct</div>');
-    quiz.append('<form><input type="text" name="name" id="playerName" placeholder="Your Name" required></br><input type="submit" value="Add to High Scores" onclick="saveHighScore()"></form>')
+    quiz.append('<form onsubmit="return false"><input type="text" name="name" id="playerName" placeholder="Your Name" required>',
+      '<input type="submit" value="Add to High Scores" onclick="saveHighScore()" id="saveScoreBtn"></input></form>')
     $('#quiz_status').append("Quiz Completed");
 
-    // $('#form-btn').onclick(
-    //   saveData()
-    // );
     return false;
-
-    // function saveData() {
-    //   localStorage.setItem("Name", $("#playerName") || "");
-    //   localStorage.setItem("Score", correct);
-    //   localStorage.setItem("Time", finalTime)
-    //   location.href = "/high-scores.html";
-    // }
   }
 
   $('#quiz_status').append("Question " + (pos + 1) + " of " + questions.length);
@@ -91,45 +81,54 @@ function checkAnswer() {
   console.log(correct);
   console.log((time(parseInt(totalSeconds / 60)) + ":" + time(totalSeconds % 60)));
 }
-
-window.addEventListener("load", renderQuestion, false);
+renderQuestion();
 
 
 //Saving HighScores to local Storage
-const highScoresList = $('#highScoresList');
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-highScoresList.text(highScores || "No High Scores have been recorded yet!");
-highScores.map(score => {
-  return `<li class="high-Score">${score.name} - ${score.score}</li>`;
-}).join("");
-
-
-const username = $("#username");
 const saveScoreBtn = $("#saveScoreBtn");
 const finalScore = $("#finalScore");
-const mostRecentScore = localStorage.getItem('mostRecentScore');
-
 
 const MAX_HIGH_SCORES = 5;
-finalScore.text(mostRecentScore);
 
-username.addEventListener("keyup", () => {
-  saveScoreBtn.disabled = !username.value;
-});
 
-saveHighScore = (event) => {
-  event.preventDefault();
+function saveHighScore() {
+  var playerName = document.getElementById("playerName");
+  console.log(correct);
+  console.log(playerName.value);
+  console.log(time(parseInt(totalSeconds / 60)) + ":" + time(totalSeconds % 60))
+  var highScores = [];
+  var yourAWizardHarry = {
+    Name: playerName.value,
+    Score: correct,
+    Time: time(parseInt(totalSeconds / 60)) + ":" + time(totalSeconds % 60)
+  }
+  highScores.push(yourAWizardHarry);
+  // if (yourAWizardHarry === null) {
+  //   highScores.push(yourAWizardHarry);
+  // } else {
+  //   highScores.push(yourAWizardHarry);
+  // }
+  // var allScores = highScores.map(function (item) {
+  //   return new yourAWizardHarry(item);
+  // });
+  // highScores.push(yourAWizardHarry);
+  // highScores.sort((a, b) => b.score - a.score);
+  // highScores.splice(5);
 
-  const score = {
-    score: Math.floor(Math.random() + 100),
-    name: username.value,
-  };
-  highScores.push(score);
-  highScores.sort((a, b) => b.score - a.score);
-  highScores.splice(5);
 
-  localStorage.setItem("highScores", JSON.stringify(highScores));
-  window.location.assign("/high-scores.html");
-
+  localStorage.setItem("Dumbledore", JSON.stringify(highScores));
+  // window.location.href = "high-scores.html";
 };
+
+// function redirect() {
+//   window.location.href("/high-scores.html");
+// }
+
+
+//Retrieving the highscroes from the local Storage
+// const highScoresList = $('#highScoresList');
+// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+// highScoresList.text(highScores).map(score => {
+//   return `<li class="high-Score">${score.name} - ${score.score} - ${score.time}</li>`;
+// }).join("");
